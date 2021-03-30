@@ -1,0 +1,24 @@
+server:
+  port: 9091
+spring:
+  application:
+    name: service-consumer
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10086/eureka
+    fetch-registry: true
+    registry-fetch-interval-seconds: 5
+service-provider:           #这个标签是服务提供方的ID，负载均衡是在服务的消费方做的。消费方通过指定ribbon的负载均衡策略来实现负载均衡
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+hystrix:             #本地的hystirx
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 6000 # 设置hystrix的超时时间为6000ms
+feign:
+  hystrix:
+    enabled: true     #开启feign的hystrix

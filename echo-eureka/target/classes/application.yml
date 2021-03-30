@@ -1,0 +1,9 @@
+server:
+  port: 10086
+spring:
+  application:
+    name: echo-eureka #������Ϊ΢��������ע�뵽eurekaע�����ģ�eureka����Ҳ����Ϊ΢�������ע��
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:${server.port}/eureka/

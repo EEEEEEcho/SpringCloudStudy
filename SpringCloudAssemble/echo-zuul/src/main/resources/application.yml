@@ -1,0 +1,17 @@
+server:
+  port: 10010
+spring:
+  application:
+    name: echo-zuul
+zuul:     # 其实可以根本不用配置，直接以服务名进行访问 就会路由过去，但这样可读性好一些 http://localhost:10010/service-provider/user/2
+  routes:
+    service-provider: #路由名称，可以随便写，习惯上是写服务的名字,对外进行暴露的服务，可以写在zuul中配置
+      path: /provider/**  # http://localhost:10010/api/provider/user/2
+      # url: http://localhost:8081  # 路径以/service-provider/**开头的路由到 http://localhost:8081
+      serviceId: service-provider   # 配置zuul注入到eureka之后，路由时就配置所需要的微服务名称即可
+    service-consumer: /consumer/**  #另一种路由的配置方式，直接使用服务名和路径的映射 http://localhost:10010/api/consumer/consumer/user/1
+  prefix: /api # 配置一个路由前缀，凡是以api开头的都是经过路由的，其他的则是直接调用的微服务
+eureka:       #将网关注入到eureka容器
+  client:
+    service-url:
+      defaultZone: http://localhost:10086/eureka
