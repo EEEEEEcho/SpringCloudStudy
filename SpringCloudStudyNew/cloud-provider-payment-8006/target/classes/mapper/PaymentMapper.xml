@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.echo.dao.PaymentDao">
+    <select id="getPaymentById" resultMap="BaseResultMap">
+        select * from payment where id = #{id}
+    </select>
+    <resultMap id="BaseResultMap" type="Payment">
+        <result column="id" property="id" jdbcType="BIGINT"/>
+        <result column="serial" property="serial" jdbcType="VARCHAR" />
+    </resultMap>
+<!--    useGeneratedKeys:仅适用于 insert 和 update）这会令 MyBatis 使用 JDBC 的 getGeneratedKeys 方法
+        来取出由数据库内部生成的主键（比如：像 MySQL 和 SQL Server 这样的关系型数据库管理系统的自动递增字段），
+        默认值：false。说白了就是使用自增主键，增加的时候自动使用自增主键-->
+<!--    keyProperty：使用主键自增之后，就无法拿到主键，但是需要使用这个自增的主键去做一些其他的操作，因此
+        添加这个属性之后，可以在调用mapper的地方获取到自增的主键值。这个keyProperty对应的值是实体类中的属性
+           而不是表中的字段 -->
+    <insert id="add" parameterType="Payment" useGeneratedKeys="true" keyProperty="id">
+        insert into payment(serial) values (#{serial})
+    </insert>
+</mapper>
