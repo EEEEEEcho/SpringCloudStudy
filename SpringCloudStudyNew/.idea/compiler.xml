@@ -22,6 +22,7 @@
         <module name="cloud-consumerzk-order-80" />
         <module name="cloud-consumerconsul-order-80" />
         <module name="cloud-provider-payment-8006" />
+        <module name="cloud-consumer-hystrix-dashboard-9001" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8" />
