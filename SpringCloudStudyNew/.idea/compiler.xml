@@ -16,6 +16,7 @@
         <module name="cloud-consumer-order-80" />
         <module name="cloud-consumer-feign-hystrix-order-80" />
         <module name="cloud-provider-payment-8002" />
+        <module name="cloud-config-center-3344" />
         <module name="cloud-provider-payment-8001" />
         <module name="cloud-provider-payment-8004" />
         <module name="cloud-consumer-feign-order-80" />
@@ -24,6 +25,7 @@
         <module name="cloud-consumerconsul-order-80" />
         <module name="cloud-provider-payment-8006" />
         <module name="cloud-consumer-hystrix-dashboard-9001" />
+        <module name="cloud-config-client-3355" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8" />

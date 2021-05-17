@@ -21,6 +21,8 @@ spring:
         - id: payment_routh2
           # uri: http://localhost:8001
           uri: lb://cloud-payment-service #动态路由，匹配后提供服务的路由地址
+#          filters:
+#            - AddRequestParameter=X-Request-Id,1024 #过滤工厂会在匹配的请求头上加以对请求头，名称为X-Request-Id值为1024
           predicates:
             - Path=/payment/lb/**       #这个路径的才匹配
             - After=2021-05-14T10:01:02.143+08:00[Asia/Shanghai]  #这个时间点之后的请求才有效
