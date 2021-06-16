@@ -25,4 +25,8 @@ public class PaymentFeignController {
         //openfeign的底层默认是ribbon，客户端默认等待1秒钟，但是我们服务提供方是3秒钟
         return paymentFeignService.paymentFeignTimeout();
     }
+    @GetMapping("/consumer/payment/zipkin")
+    public String paymentZipkin(){
+        return paymentFeignService.paymentZipkin();
+    }
 }

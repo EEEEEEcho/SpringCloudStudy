@@ -16,6 +16,11 @@
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
     <dependencies>
+        <!--  sleuth + zipkin    -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
+        </dependency>
         <!--        引入openfeign,它天生整合了ribbon-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

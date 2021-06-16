@@ -25,6 +25,16 @@
         <module>cloud-gateway-gateway-9527</module>
         <module>cloud-config-center-3344</module>
         <module>cloud-config-client-3355</module>
+        <module>cloud-config-client-3366</module>
+        <module>cloud-stream-rabbitmq-provider-8801</module>
+        <module>cloud-stream-rabbitmq-consumer-8802</module>
+        <module>cloud-stream-rabbitmq-consumer-8803</module>
+        <module>cloudalibaba-provider-payment-9001</module>
+        <module>cloudalibaba-provider-payment-9002</module>
+        <module>cloudalibaba-consumer-nacos-order-83</module>
+        <module>untitled</module>
+        <module>cloudalibaba-config-nacos-client3377</module>
+        <module>cloudalibaba-sentinel-service-8401</module>
     </modules>
     <packaging>pom</packaging>
     <!--    统一jar包和版本号的管理 -->
