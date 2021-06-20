@@ -22,7 +22,7 @@ public class RateLimitController {
         return new CommonResult(444,blockException.getClass().getCanonicalName() + "\t" + "服务不可用");
     }
 
-    @GetMapping("/reteLimit/byUrl")
+    @GetMapping("/rateLimit/byUrl")
     @SentinelResource(value = "byUrl")  //没有写blockHandler后会按照Sentinel的默认兜底规则处理
     public CommonResult byUrl(){
         return new CommonResult(200,"按URL限流测试成功",new Payment(2020L,"serial002"));
