@@ -1,11 +1,16 @@
 server:
-  port: 8001
-  tomcat:
-    max-threads: 1000
+  port: 8006
 
 spring:
   application:
-    name: cloud-provider-hystrix-payment
+    name: cloud-payment-service
+###consul注册中心地址###
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        service-name: ${spring.application.name}
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource      #当前数据源操作类型
     driver-class-name: org.gjt.mm.mysql.Driver        #mysql驱动包，用的是spring的jdbc
@@ -15,11 +20,4 @@ spring:
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: com.echo.pojo     #配置所有别名的包的位置，意思就是com.echo.pojo.Payment可以直接写成Payment
-
-eureka:
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaultZone: http://eureka7001.com:7001/eureka/
+  type-aliases-package: com.echo.pojo     #配置所有别名的包的位置，意思就是com.echo.pojo.Payment可以直接写

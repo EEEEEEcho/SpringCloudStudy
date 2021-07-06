@@ -1,0 +1,38 @@
+server:
+  port: 8802
+
+spring:
+  application:
+    name: cloud-stream-consumer
+  rabbitmq:
+    host: 192.168.45.135
+    port: 5672
+    username: admin
+    password: admin
+  cloud:
+    stream:
+      binders: # 此处配置要绑定的rabbitmq的服务信息
+        defaultRabbit: #表示定义的名称，用于binding的整合
+          type: rabbit  #消息组件类型
+      #          ！！！！这里一定要注意，只有在本机安装rabbitmq的情况下才能使用这种方式
+      #          如果在服务器或虚拟机上安装了rabbitmq，就不能这么用，就得按照现在的文件来
+      #          environment:  #设置rabbitmq的相关的环境配置
+      #            spring:
+      #              rabbitmq:
+      #                host: 192.168.45.135
+      #                port: 5672
+      #                username: admin
+      #                password: admin
+      bindings: #服务的整合处理
+        input: #这个名字是一个通道的名字  , 与生产者唯一的区别就是这里，由output变为了input
+          destination: stream-study-exchange  #表示要使用的交换机的名称
+          content-type: application/json #设置消息类型，这里使用的json，如果是文本，则要设置为“text/plain"
+          binder: defaultRabbit
+          group: echo1
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+  instance:
+    instance-id: consumer-8802.com

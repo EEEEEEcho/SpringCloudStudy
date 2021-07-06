@@ -1,0 +1,21 @@
+# nacos配置
+server:
+  port: 3377
+
+spring:
+  application:
+    name: nacos-config-client
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848 #Nacos服务注册中心地址
+      config:
+        server-addr: localhost:8848 #Nacos作为配置中心地址
+        file-extension: yaml #指定yaml格式的配置  这样3377就可以在8848上读取yaml格式的配置文件
+        group: DEV_GROUP
+        namespace: fd83bf85-fae1-43ff-9edf-6c184540a752
+
+# 公式
+# ${spring.application.name)}-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+# 所以由公式我们可以知道，要新增的配置文件是
+#  (nacos-config-client) - (dev) . (yml) -> nacos-config-client-dev.yml
