@@ -11,12 +11,12 @@ spring:
     username: root
     password: s814466057
   # zipkin配置
-  zipkin:
-    # 监控地址
-    base-url: http://localhost:9411
-    sleuth:
-      sampler:  #采样率，介于0 到 1之间，1则表示全部采样
-        probability: 1
+#  zipkin:
+#    # 监控地址
+#    base-url: http://localhost:9411
+#    sleuth:
+#      sampler:  #采样率，介于0 到 1之间，1则表示全部采样
+#        probability: 1
 
 
 
